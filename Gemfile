@@ -13,8 +13,8 @@ gem 'rails-ujs'
 gem 'materialize-sass'
 gem 'bullet'
 gem 'faker'
-gem 'bcrypt'
-# gem "paperclip", "~> 5.0.0"
+gem "bcrypt"
+gem "paperclip", "~> 5.0.0"
 
 group :development, :test do
   gem 'byebug', platform: :mri
