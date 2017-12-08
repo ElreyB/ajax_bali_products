@@ -5,12 +5,13 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.new(item_params)
     @order.save
     session[:order_id] = @order.id
-    flash[:notice] = "Item added to cart"
+
     respond_to do |format|
-      format.html { redirect_to products_path }
+      format.html {
+        flash[:notice] = "Item added to cart"
+        redirect_to products_path }
       format.js
     end
-    redirect_to products_path
   end
 
   def update
@@ -25,7 +26,13 @@ class OrderItemsController < ApplicationController
     @item = @order.order_items.find(params[:id])
     @item.destroy
     @order.save
-    redirect_to cart_path
+    flash[:notice] = "Item has been deleted from cart."
+     respond_to do |format|
+       format.html { redirect_to cart_path }
+       format.js
+     end
+     redirect_to cart_path
+
   end
 
   private
