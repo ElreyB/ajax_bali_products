@@ -6,12 +6,12 @@ class OrderItemsController < ApplicationController
     @order.save
     session[:order_id] = @order.id
 
-    respond_to do |format|
-      format.html {
-        flash[:notice] = "Item added to cart"
-        redirect_to products_path }
-      format.js
-    end
+    flash[:notice] = "Item added to cart!"
+      respond_to do |format|
+        format.html { redirect_to products_path }
+        format.js
+      end
+    redirect_to products_path
   end
 
   def update
