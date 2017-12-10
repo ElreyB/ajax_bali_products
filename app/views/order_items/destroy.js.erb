@@ -1,0 +1,9 @@
+$('#item-<%=@item.id%>').remove();
+$('#cart-detail').empty().append(`<%= link_to "Cart | Total items: #{ cart_items }", cart_path %>`)
+
+if (<%=current_order.total_price%> == 0){
+  $('#finalize').empty();
+  $('#total_price').empty().append("Your shopping cart is empty.");
+} else {
+  $('#total_price').empty().append(`Your Total: <%= number_to_currency current_order.total_price %>`)
+}
