@@ -24,14 +24,14 @@
   </nav>
 
   <body>
-    <% flash.each do |name, msg| %>
-      <% if name == notice %>
-        <%= content_tag :div, msg, id: "flash_#{name}"%>
-      <% else %>
-        <%= content_tag :div, msg, id: "flash_#{name}"%>
-      <% end %>
-    <% end %>
     <div class="container">
+      <% flash.each do |name, msg| %>
+      <% if name == notice %>
+      <%= content_tag :div, msg, id: "flash_#{name}", class: "green-text text-darken-3"%>
+      <% else %>
+      <%= content_tag :div, msg, id: "flash_#{name}"%>
+      <% end %>
+      <% end %>
       <%= yield %>
     </div>
   </body>
