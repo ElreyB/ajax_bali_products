@@ -3,7 +3,20 @@
 <%= form_for @product do |f| %>
   Name: <%= f.text_field :name %>
   Description: <%= f.text_field :description %>
-  Password: <%= f.number_field :price %>
+  Price: <%= f.number_field :price, min: 0.00, step: 0.01 %>
+  In Stock: <%= f.number_field :in_stock, min: 0, max:1000, step: 1 %>
+  <div class="#">
+        <div class="file-field input-field gallery_picture">
+
+       <div class="btn">
+
+         <span>Upload file</span>
+         <%= f.file_field :image %>
+         </div>
+       <input class="file-path validate" type="text"/>
+       </div>
+
+   </div>
 <%= f.submit "Submit" %>
 
 <% end %>
