@@ -12,7 +12,7 @@ class UsersController < ApplicationController
       redirect_to '/'
     else
       flash[:notice] = "Something went wrong:"
-      redirect_to '/signup'
+      redirect_to '/sign_up'
     end
   end
 

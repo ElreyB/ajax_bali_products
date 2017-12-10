@@ -25,7 +25,11 @@
 
   <body>
     <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}"%>
+      <% if name == notice %>
+        <%= content_tag :div, msg, id: "flash_#{name}"%>
+      <% else %>
+        <%= content_tag :div, msg, id: "flash_#{name}"%>
+      <% end %>
     <% end %>
     <div class="container">
       <%= yield %>
