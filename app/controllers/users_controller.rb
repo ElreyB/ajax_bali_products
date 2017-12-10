@@ -5,14 +5,14 @@ class UsersController < ApplicationController
   end
 
   def create
-    user = User.new(user_params)
-    if user.save
+    @user = User.new(user_params)
+    if @user.save
       flash[:notice] = "Welcome to Ajax Bali Products"
       session[:user_id] = user.id
       redirect_to '/'
     else
       flash[:notice] = "Something went wrong:"
-      redirect_to '/sign_up'
+      render :new
     end
   end
 

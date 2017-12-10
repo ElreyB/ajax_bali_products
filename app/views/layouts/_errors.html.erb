@@ -1,7 +1,7 @@
 <% if object.errors.any? %>
 
     <% object.errors.full_messages.each do |message| %>
-      <p class="text-danger"><%= message %></p>
+      <p class="red-text text-darken-2"><%= message %></p>
     <% end %>
 
 <% end %>
