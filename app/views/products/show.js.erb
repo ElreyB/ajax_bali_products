@@ -1,0 +1,6 @@
+
+if ($('#product-details<%=@product.id%>').children().length == 0 ){
+  $('#product-details<%=@product.id%>').html('<%= j render("details")%>');
+} else {
+  $('#product-details<%=@product.id%>').empty();
+}
